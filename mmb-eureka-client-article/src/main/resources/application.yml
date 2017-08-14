@@ -3,3 +3,12 @@ words: 一个,两个,三个,四个,五个
 server:
   port: ${PORT:${SERVER_PORT:0}}
 #  这个的意思是随机指定个没使用的端口
+
+
+
+eureka:
+#  password: password
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8010/eureka/
+#      defaultZone: http://user:${eureka.password}@localhost:8761/eureka/

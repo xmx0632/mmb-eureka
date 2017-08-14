@@ -3,3 +3,10 @@ words: 你,我,他
 server:
   port: 9001
 #  这个的意思是随机指定个没使用的端口
+
+
+eureka:
+#  password: password
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8010/eureka/

@@ -19,6 +19,9 @@ public class Controller {
     @Autowired
     DiscoveryClient client;
 
+//    @Autowired
+//    RestTemplate restTemplate;
+
     @RequestMapping("/sentence")
     public  String getSentence() {
         return
@@ -35,7 +38,9 @@ public class Controller {
         if (list != null && list.size() > 0 ) {
             URI uri = list.get(0).getUri();
             if (uri !=null ) {
-                return (new RestTemplate()).getForObject(uri,String.class);
+                System.out.println("uri:" + uri);
+//                return (new RestTemplate()).getForObject(uri,String.class);
+                return (new RestTemplate()).getForEntity(uri,String.class).getBody();
             }
         }
         return null;
