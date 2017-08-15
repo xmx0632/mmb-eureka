@@ -39,8 +39,9 @@ public class Controller {
             URI uri = list.get(0).getUri();
             if (uri !=null ) {
                 System.out.println("uri:" + uri);
-//                return (new RestTemplate()).getForObject(uri,String.class);
-                return (new RestTemplate()).getForEntity(uri,String.class).getBody();
+//                return (new RestTemplate ()).getForObject(uri,String.class);
+
+                return (new RestTemplate ()).getForEntity(uri,String.class).getBody();
             }
         }
         return null;

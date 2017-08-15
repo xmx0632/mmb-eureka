@@ -5,19 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.mmb.cloud</groupId>
-    <artifactId>mmb-eureka-server</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>mmb-eureka-client-verb-1</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <modules>
-        <module>eureka-server</module>
-        <module>mmb-eureka-client-adjective</module>
-        <module>mmb-eureka-client-article</module>
-        <module>mmb-eureka-client-noun</module>
-        <module>mmb-eureka-client-subject</module>
-        <module>mmb-eureka-client-verb</module>
-        <module>mmb-eureka-client-verb-1</module>
-        <module>mmb-eureka-sentence</module>
-    </modules>
 
     <parent>
         <groupId>org.springframework.cloud</groupId>
@@ -29,8 +18,11 @@
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-eureka-server</artifactId>
+            <artifactId>spring-cloud-starter-eureka</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-config-client</artifactId>
         </dependency>
     </dependencies>
-
 </project>
