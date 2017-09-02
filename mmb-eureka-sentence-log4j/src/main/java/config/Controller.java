@@ -20,10 +20,7 @@ public class Controller {
     private static final Logger logger = LoggerFactory.getLogger(Controller.class);
 
     @Autowired
-    DiscoveryClient client;
-
-//    @Autowired
-//    RestTemplate restTemplate;
+    Service service;
 
     @RequestMapping("/sentence")
     public  String getSentence() {
@@ -36,17 +33,8 @@ public class Controller {
                 ;
     }
 
-    public String getWord(String service) {
-        List<ServiceInstance> list = client.getInstances(service);
-        if (list != null && list.size() > 0 ) {
-            URI uri = list.get(0).getUri();
-            if (uri !=null ) {
-                logger.info("uri:" + uri);
-//                return (new RestTemplate ()).getForObject(uri,String.class);
-
-                return (new RestTemplate ()).getForEntity(uri,String.class).getBody();
-            }
-        }
-        return null;
+    public String getWord(String serviceName){
+        return service.getWord(serviceName);
     }
+
 }
