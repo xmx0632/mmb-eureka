@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--注意文件名称不是logback.xml，想使用spring扩展profile支持，要以logback-spring.xml命名-->
+<configuration>
+
+    <springProperty scope="context" name="logging.path" source="logging.path"/>
+    <springProperty scope="context" name="logging.level" source="logging.level.config"/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <!--<Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS},%-5level,[%thread],%logger{50} - %msg%n</Pattern>-->
+            <!--console -->
+            <!--<Pattern>%d{HH:mm:ss.SSS},%-5p,%X{uuid},[%thread],[%logger{50}:%L], %msg%n</Pattern>-->
+
+            <!--log file -->
+            <Pattern>[logback]%d{yyyy-MM-dd HH:mm:ss.SSS},%-5p,%X{uuid},[%thread],[%logger{50}:%L], %msg%n</Pattern>
+
+        </encoder>
+    </appender>
+
+    <springProfile name="dev">
+        <logger name="config" level="INFO" additivity="false">
+            <appender-ref ref="STDOUT"/>
+        </logger>
+
+        <root level="INFO">
+            <appender-ref ref="STDOUT"/>
+        </root>
+    </springProfile>
+
+</configuration>

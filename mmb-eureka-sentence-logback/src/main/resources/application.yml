@@ -1,0 +1,17 @@
+server:
+  port: 8020
+
+logging:
+  config: classpath:logback-spring.xml
+#  path: ./logs
+#  level: info
+
+eureka:
+#  password: password
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8010/eureka/
+
+spring:
+  profiles:
+    active: dev

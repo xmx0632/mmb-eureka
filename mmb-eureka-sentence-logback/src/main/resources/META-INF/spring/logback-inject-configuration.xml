@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd"
+       default-autowire="byName">
+
+    <aop:aspectj-autoproxy proxy-target-class="true" />
+
+    <!--<bean id="logbackInterceptor" class="com.cxins.cn.log.LogbackInterceptor" ></bean>-->
+
+    <!--配置需要拦截的方法所在包路径 例子-->
+    <!--
+    <aop:config>
+        <aop:advisor advice-ref="logbackInterceptor" pointcut="execution(* com.cxins.cn.package_name_that_need_inject_uuid..*.*(..))"/>
+    </aop:config>
+    -->
+    <aop:config>
+        <aop:advisor advice-ref="logbackInterceptor" pointcut="execution(* config..*.*(..))"/>
+    </aop:config>
+</beans>
